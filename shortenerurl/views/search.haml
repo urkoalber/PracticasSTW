@@ -1,0 +1,13 @@
+-if !@url
+  %p No se han encontrado coincidencias.
+-else
+  %h4 Shortened URL found
+  %ul
+    %li
+      id: 
+      %a{:href => "http://#{address}/#{@url.id.to_s(36)}"} #{@url.id.to_s(36)}
+      \- #{@url.url}
+      -if !@url.custom.empty?
+        \- Custom tag: 
+        %a{:href => "http://#{address}/#{@url.custom}"} #{@url.custom}
+  %i (click on id or -if possible- custom tag to go)

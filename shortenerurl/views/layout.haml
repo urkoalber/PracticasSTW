@@ -1,0 +1,45 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title URL Shortener Service
+    %meta{:name => "author", :content => "urko martinez"}
+    %link{:rel => "stylesheet", :href => "css/bootstrap.css"}
+    %link{:rel => "stylesheet", :href => "css/styles.css"}    
+  %body
+    .span10.container-narrow
+      .masthead
+        %ul.nav.nav-pills.pull-right
+          %li
+            %a{:href => "/"} index
+          %li
+            %a{:href => "/show"} show
+        %h3.muted URL Shortener Service
+      %hr
+      .jumbotron
+        %h3 Welcome to the ultimate URL Shortener service!
+      =yield
+      %hr
+      %div.row 
+        %div.span5.pull-right
+          %h4 Create new.
+          %form(action="/" method="POST")
+            %label(for="url") URL
+            %input.span5(type="text" name="url" id="url" accesskey="s" autofocus="autofocus")
+            %br
+            %label(for="custom") Custom Shortened URL (optional)
+            %input.span5(type="text" name="custom" id="custom" accesskey="t")
+            %br
+            %input.btn-large.btn-block(type="submit" value="Shorten" class="btn btn-primary")
+        %div.span5
+          %h4 Search.
+          %form(action="/search" method="POST")
+            %label(for="search_url") 
+              %strong URL 
+              or 
+              %strong id 
+              or 
+              %strong custom tag
+            %input.span5(type="text" name="search_input" id="serach_input" accesskey="u")
+            %br
+            %input.btn-block(type="submit" value="Search" class="btn btn-primary")          

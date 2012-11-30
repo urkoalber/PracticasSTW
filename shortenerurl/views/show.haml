@@ -1,0 +1,14 @@
+-if @urls.empty?
+  %p No existen enlaces acortados.
+-else
+  %h4 Shortened URLs list
+  %ul
+    -@urls.each do |u|
+      %li
+        id: 
+        %a{:href => "http://#{address}/#{u.id.to_s(36)}"} #{u.id.to_s(36)}
+        \- #{u.url} 
+        -if !u.custom.empty?
+          \- Custom tag: 
+          %a{:href => "http://#{address}/#{u.custom}"} #{u.custom}
+  %i (click on id or -if possible- custom tag to go)

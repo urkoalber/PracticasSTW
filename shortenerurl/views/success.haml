@@ -1,0 +1,4 @@
+%p Parámetros de entrada: #{params}
+-if custom_error
+  %p.error Warning: custom tag already exists, you CAN NOT use it!
+%a{:href => "http://#{address}/#{@long_url.id.to_s(36)}"} http://#{address}/#{@long_url.id.to_s(36)}
