@@ -1,0 +1,27 @@
+body {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  float: center;
+}
+.container-narrow > hr {
+  margin: 20px 0 10px;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.error {
+  color: red;
+}
+
+.nav-line{
+  list-style: none;
+}

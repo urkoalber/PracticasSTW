@@ -1,0 +1,4 @@
+- if @long_url.present? && !@long_url.valid?
+  %p.error
+    %strong Invalid URL: #{@long_url.url}
+  %i Format: http or https://site-name.ext

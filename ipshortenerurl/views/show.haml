@@ -1,0 +1,24 @@
+-if @urls.empty?
+  %p No existen enlaces acortados.
+-else
+  %h4 Shortened URLs list
+  %ul
+    -@urls.each do |u|
+      %li
+        id: 
+        %a{:href => "http://#{address}/#{u.id.to_s(36)}"} #{u.id.to_s(36)}
+        \- #{u.url} 
+        -if !u.custom.empty?
+          \- Custom tag: 
+          %a{:href => "http://#{address}/#{u.custom}"} #{u.custom}
+        -if !u.visits.empty?
+          %br
+          Visitas
+          %ul.nav-line
+            - cont = 0; 
+            - visits_to_hash(u.visits).each do |k,v|
+              -cont += v;
+              %li.pull-right País: #{k} - Num. visitas: #{v}|| 
+            %li Visitas totales: #{cont}
+
+  %i (click on id or -if possible- custom tag to go)
