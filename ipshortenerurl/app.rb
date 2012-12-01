@@ -4,8 +4,8 @@ require 'haml'
 require 'geocoder'
 
 set :database, 'sqlite3:///shortened_urls.db'
-#set :address, 'localhost:4567'
-set :address, '192.168.1.35:4567'
+set :address, 'localhost:4567'
+#set :address, '192.168.1.35:4567'
 
 def visits_to_hash(str) #formato de string: "numvisitas@pais1,3@pais2,1@pais3"
   h={}
