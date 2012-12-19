@@ -1,0 +1,44 @@
+body {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  float: center;
+}
+.container-narrow > hr {
+  margin: 20px 0 10px;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.nav-line{
+  list-style: none;
+}
+
+.scroll-div {
+  height: 300px;
+  overflow: auto;
+  position: relative;
+}
+
+iframe {
+display: block;
+padding: 9.5px;
+background-color: whiteSmoke;
+border: 1px solid #CCC;
+border: 1px solid rgba(0, 0, 0, 0.15);
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.ul-div {
+  background-color: whiteSmoke;
+}

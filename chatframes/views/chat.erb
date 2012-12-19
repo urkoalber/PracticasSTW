@@ -1,0 +1,54 @@
+<div class="container">
+  <div id="chat-container" class="span7">
+    <h2>Chat room: </h2>
+    
+<pre id='chat' class="scroll-div">Welcome, <%= user %>!
+</pre>
+
+  </div>
+  <div id="users-container" class="span3">
+    <h3> Users: </h3>
+  	 <iframe id="users" src="users" width="160px" height="300px" frameborder="0" seamless>
+      <p>Your browser does not support iframes.</p>
+    </iframe>
+  </div>
+  <div id="text-input-container" class="span10">
+    <form class="form-inline">
+      <input id="msg" type="text" placeholder="type message here..." autofocus>
+    </form>
+  </div
+</div>
+
+<input id="name" type="hidden" value=<%= user %> disabled>
+
+<script>  
+  // reading
+  var es = new EventSource('/stream');
+  es.onmessage = function(e) {
+    var message;
+    if (message = e.data.match(/(.+)\/<%= user %>:(.+)/)) {
+    // user receives a private message
+      $('#chat').prepend("Received private from " +  message[1] + message[2] + "\n");
+    } else if (message = e.data.match(/<%= user %>: \/(.+): (.+)/)){
+    // user sends a private message
+      $('#chat').prepend("Sent private to " + message[1] + ": " + message[2] + "\n");
+    } else if (!e.data.match(/(.+): \/(.+):/)) {
+    // common message
+      $('#chat').prepend(e.data + "\n");
+    }
+  };
+
+  // writing
+  $("form").live("submit", function(e) {
+    $.post('/', {msg: "<%= user %>: " + $('#msg').val()});
+    $('#msg').val(''); $('#msg').focus();
+    e.preventDefault();
+  });
+</script>
+<script>
+  // refresh users iframe  
+  setInterval(refreshIframe, 5000); // every 5 seconds
+  function refreshIframe() {
+    $("#users")[0].src = $("#users")[0].src;
+  }
+</script>
